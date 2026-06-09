@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashwin & Ayushi Wedding Invitation</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+</head>
+
+<body>
+
+  <div id="startScreen">
+    <div class="startBox">
+      <h1>Ashwin & Ayushi</h1>
+      <p>
+      Tap to open the invitation<br><br>
+      📖 Swipe left or right to turn pages
+      </p>
+      <button onclick="startInvitation()">Open Invitation</button>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="audio/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="flipbook-wrapper">
+    <div id="flipbook">
+
+      <div class="page coverPage">
+        <img class="coverImage" src="images/01-cover.png">
+        <div class="sparkleOverlay"></div>
+      </div>
+
+      <div class="page"><img src="images/02-invitation.png"></div>
+      <div class="page"><img src="images/03-mehendi.png"></div>
+
+      <div class="page sangeetPage">
+        <img src="images/04-sangeet.png">
+        <div class="lightGlow"></div>
+      </div>
+
+      <div class="page haldiPage">
+        <img src="images/05-haldi.png">
+      </div>
+
+      <div class="page weddingPage">
+        <img src="images/06-wedding.png">
+        <div class="palaceGlow"></div>
+      </div>
+
+      <div class="page receptionPage">
+        <img src="images/07-reception.png">
+        <div class="lightGlow"></div>
+      </div>
+
+      <div class="page thankyouPage">
+        <img class="thankyouImage" src="images/08-thankyou.png">
+        <div class="sparkleOverlay"></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="tapZone leftZone" onclick="previousPage()"></div>
+  <div class="tapZone rightZone" onclick="nextPage()"></div>
+  <div class="musicButton" onclick="toggleMusic()">
+    🔊 Music
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

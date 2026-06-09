@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle, #2b210f, #050505);
+  height: 100vh;
+  overflow: hidden;
+  font-family: Georgia, serif;
+}
+
+.flipbook-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#flipbook {
+  width: min(92vw, 420px);
+  height: calc(min(92vw, 420px) * 1.777);
+}
+
+.page {
+  background: #f8f1df;
+  box-shadow: 0 0 25px rgba(255, 215, 120, 0.35);
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.controls {
+  position: fixed;
+  bottom: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  z-index: 20;
+}
+
+.controls button,
+.startBox button {
+  background: rgba(212, 175, 55, 0.95);
+  border: none;
+  color: #111;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #4a3515, #000);
+  color: gold;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+}
+
+.startBox h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.startBox p {
+  color: #fff2c7;
+}
+.musicButton {
+
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+background:rgba(212,175,55,.95);
+
+padding:10px 14px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:14px;
+
+z-index:1000;
+
+}
+.tapZone {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 20vw;
+  z-index: 500;
+}
+
+.leftZone {
+  left: 0;
+}
+
+.rightZone {
+  right: 0;
+}
+
+.musicButton {
+  z-index: 1000;
+}
+.coverImage {
+  animation:
+    coverzoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes coverZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
+.receptionImage {
+  animation: waterGlow 6s ease-in-out infinite;
+}
+
+@keyframes waterGlow {
+
+  0% {
+    filter: brightness(100%);
+  }
+
+  50% {
+    filter: brightness(108%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
+
+}
+.thankyouImage {
+  animation: thankGlow 8s ease-in-out infinite;
+}
+
+@keyframes thankGlow {
+
+  0% {
+    filter: brightness(100%);
+  }
+
+  50% {
+    filter: brightness(110%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
+
+}
+.coverImage {
+  animation: coverGlow 3s ease-in-out infinite;
+}
+
+.receptionImage {
+  animation: receptionGlow 4s ease-in-out infinite;
+}
+
+.thankyouImage {
+  animation: thankGlow 4s ease-in-out infinite;
+}
+
+@keyframes coverGlow {
+  0% { filter: brightness(95%) saturate(100%); transform: scale(1); }
+  50% { filter: brightness(125%) saturate(120%); transform: scale(1.03); }
+  100% { filter: brightness(95%) saturate(100%); transform: scale(1); }
+}
+
+@keyframes receptionGlow {
+  0% { filter: brightness(95%); }
+  50% { filter: brightness(125%); }
+  100% { filter: brightness(95%); }
+}
+
+@keyframes thankGlow {
+  0% { filter: brightness(95%); }
+  50% { filter: brightness(120%); }
+  100% { filter: brightness(95%); }
+}
+.page {
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkleOverlay,
+.lightGlow,
+.waterRipple,
+.petalOverlay,
+.palaceGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Cover / Thank you sparkles */
+.sparkleOverlay {
+  background-image:
+    radial-gradient(circle, rgba(255,255,210,0.9) 1px, transparent 2px),
+    radial-gradient(circle, rgba(255,215,120,0.8) 1px, transparent 2px);
+  background-size: 90px 90px, 130px 130px;
+  animation: sparkleMove 6s linear infinite;
+  opacity: 0.55;
+}
+
+@keyframes sparkleMove {
+  from { transform: translateY(0); opacity: 0.35; }
+  50% { opacity: 0.8; }
+  to { transform: translateY(-40px); opacity: 0.35; }
+}
+
+/* Sangeet / Reception glowing lights */
+.lightGlow {
+  background:
+    radial-gradient(circle at 25% 18%, rgba(255,220,120,0.45), transparent 12%),
+    radial-gradient(circle at 72% 22%, rgba(255,220,120,0.35), transparent 14%),
+    radial-gradient(circle at 50% 12%, rgba(255,255,180,0.25), transparent 10%);
+  animation: lightPulse 3s ease-in-out infinite;
+}
+
+@keyframes lightPulse {
+  0% { opacity: 0.25; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.25; }
+}
+
+/* Wedding palace shimmer */
+.palaceGlow {
+  background:
+    radial-gradient(circle at 50% 78%, rgba(255,210,120,0.35), transparent 28%);
+  animation: palaceShimmer 4s ease-in-out infinite;
+}
+
+@keyframes palaceShimmer {
+  0% { opacity: 0.2; }
+  50% { opacity: 0.75; }
+  100% { opacity: 0.2; }
+}
+
+/* Reception water ripple */
+.waterRipple {
+  top: auto;
+  height: 38%;
+  background:
+    repeating-radial-gradient(ellipse at center,
+      rgba(255,255,255,0.18) 0px,
+      rgba(255,255,255,0.08) 3px,
+      transparent 8px,
+      transparent 22px);
+  animation: waterMove 7s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes waterMove {
+  from { transform: translateY(8px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.04); }
+  to { transform: translateY(8px) scale(1); }
+}
